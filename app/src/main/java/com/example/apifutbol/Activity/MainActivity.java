@@ -1,8 +1,10 @@
-package com.example.apifutbol;
+package com.example.apifutbol.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.apifutbol.R;
 
 public class MainActivity extends AppCompatActivity {
 
