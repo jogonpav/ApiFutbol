@@ -44,7 +44,7 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
         Picasso.get()
                 .load(items.get(position).getStrBadge())
-                .resize(100,100)
+                .resize(200,200)
                 .into(holder.ivLogo);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
