@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @BindView(R.id.rvLeague)
     RecyclerView rvLeague;
 

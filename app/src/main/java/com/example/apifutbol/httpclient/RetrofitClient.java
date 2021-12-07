@@ -5,7 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    public static final String BASE_URL = "https://thesportsdb.p.rapidapi.com/";
+    public static final String BASE_URL = "https://www.thesportsdb.com/api/v1/json/50130162/";
+    //public static final String BASE_URL = "https://thesportsdb.p.rapidapi.com/";
 
     public static Retrofit retrofit = null;
 
