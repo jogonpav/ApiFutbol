@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.ViewHolder> implements View.OnClickListener {
+public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.ViewHolder>  {
 
     Context context;
     List<CountrysItem> items;
@@ -49,7 +49,7 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
         if (items.get(position).getStrBadge() == null){
             Picasso.get()
-                    .load(R.drawable.concacaf___gold_cup)
+                    .load(R.drawable.no_picture)
                     .resize(200,200)
                     .into(holder.ivLogo);
         }else{
@@ -63,14 +63,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
         holder.setOnClickListeners();
 
 
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
-
     }
 
     @Override
@@ -78,10 +70,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
         return items.size();
     }
 
-    @Override
-    public void onClick(View v) {
-        
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -91,6 +79,7 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
         View itemView;
         //buton para pasar a activity
         Button btnVerliga;
+
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -106,7 +95,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
         public void setOnClickListeners() {
             btnVerliga.setOnClickListener(this);
-
         }
 
         @Override

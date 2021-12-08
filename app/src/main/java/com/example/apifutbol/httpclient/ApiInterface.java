@@ -18,11 +18,9 @@ public interface ApiInterface {
     @GET("lookupleague.php")
     Call<ResponseDetailLeague> getDetailLeague(@Query("id")String id);
 
-    //lookup_all_teams.php?id=4346  - Detalla solo la información de la liga
+    //lookup_all_teams.php?id=4346  - Detalla la información de los equipos de la liga
     @GET("lookup_all_teams.php")
     Call<ResponseAllTeamsByLeague> getTeamsByLeague(@Query("id") String id_teams);
-
-
 
     //https://www.thesportsdb.com/api/v1/json/50130162/lookup_all_teams.php?id=4497
 

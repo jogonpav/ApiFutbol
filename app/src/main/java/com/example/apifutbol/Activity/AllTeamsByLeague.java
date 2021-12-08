@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -52,7 +53,6 @@ public class AllTeamsByLeague extends AppCompatActivity {
         context = this;
         adapter = new AdapterAllTeamsByLeague(context, items);
         rvTeamsByLeague.setLayoutManager(new GridLayoutManager(context,1));
-
 
         rvTeamsByLeague.setAdapter(adapter); //Después de darle el adaptador al Recycler View, se debe crear el obejo ApiInterface
 
