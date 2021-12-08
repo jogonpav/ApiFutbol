@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.ViewHolder> {
+public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.ViewHolder> implements View.OnClickListener {
 
     Context context;
     List<CountrysItem> items;
@@ -45,7 +45,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvName.setText(items.get(position).getStrLeague());
-        //holder.PositionLeague.setText(position);
         holder.tvIdLeague.setText(items.get(position).getIdLeague());
 
         if (items.get(position).getStrBadge() == null){
@@ -77,6 +76,11 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -111,9 +115,9 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
             Intent intent = new Intent(context, DetailLeague.class);
             for (int i=0; i < items.size(); i++){
                 if(items.get(i).getIdLeague() == tvIdLeague.getText()){
-                    //toast = Toast.makeText(context, String.valueOf(items.get(i).getStrBadge()), Toast.LENGTH_LONG);
                     //toast.show();
                     //enviar parámetro a la activity invocada
+                    //Toast.makeText(context, String.valueOf(items.get(i).getIdLeague()), Toast.LENGTH_LONG).show();
                     intent.putExtra("IdLeague", tvIdLeague.getText());
                     intent.putExtra("logo", String.valueOf(items.get(i).getStrBadge()));
                     intent.putExtra("banner",String.valueOf(items.get(i).getStrBanner()));

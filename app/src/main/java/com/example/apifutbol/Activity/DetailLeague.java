@@ -2,23 +2,29 @@ package com.example.apifutbol.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.apifutbol.R;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
 
-public class DetailLeague extends AppCompatActivity {
+public class DetailLeague extends AppCompatActivity implements View.OnClickListener {
+    TextView tvIdLeague2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_league);
         Bundle extras = getIntent().getExtras();
-        String idLeagueDetail= extras.getString("idLeague");
+        String idLeague2 = extras.getString("IdLeague");
+        //Toast.makeText(getApplication(),idLeague2 + "Estamos aqui", Toast.LENGTH_LONG).show();
         String logoDetail = extras.getString("logo");
         String bannerDetail = extras.getString("banner");
         String nameLeagueDetail = extras.getString("nameLeague");
@@ -39,6 +45,7 @@ public class DetailLeague extends AppCompatActivity {
         TextView tvFormedYearDetail = (TextView) findViewById(R.id.tvYearDetail);
         TextView tvGenderDetail = (TextView) findViewById(R.id.tvGenderDetail);
         TextView tvDescriptionENDetail = (TextView) findViewById(R.id.tvDescriptionDetail);
+        tvIdLeague2 = (TextView) findViewById(R.id.tvIdLeague2);
         ImageView ivFanart1Detail = (ImageView) findViewById(R.id.ivFanart1Detail);
         ImageView ivFanart2Detail = (ImageView) findViewById(R.id.ivFanart2Detail);
         ImageView ivFanart3Detail = (ImageView) findViewById(R.id.ivFanart3Detail);
@@ -48,6 +55,7 @@ public class DetailLeague extends AppCompatActivity {
         tvCountryDetail.setText(countryDetail);
         tvFormedYearDetail.setText(FormedYearDetail);
         tvGenderDetail.setText(genderDetail);
+        tvIdLeague2.setText(idLeague2);
         tvDescriptionENDetail.setText(DescriptionENDetail);
 
         //image banner
@@ -80,6 +88,16 @@ public class DetailLeague extends AppCompatActivity {
                 .load(Fanart4Detail)
                 .resize(500,500)
                 .into(ivFanart4Detail);
+    }
+
+    @Override
+    public void onClick(View v) {
+        //Toast.makeText(getApplication(),tvIdLeague2.getText() +"boton funcionando", Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(this, AllTeamsByLeague.class);
+        intent.putExtra("IdLeague", tvIdLeague2.getText());
+        startActivity(intent);
+
 
     }
 }

@@ -24,7 +24,7 @@
                 android:id="@+id/ivBannerDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/concacaf"
+                app:srcCompat="@drawable/concacaf"
                 />
             <!--app:srcCompat="@drawable/concacaf" -->
             <ImageView
@@ -42,6 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Nombre de la liga"
                 android:textAlignment="center"
+                android:textColor="#404040"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -51,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="País"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#404040" />
 
             <TextView
                 android:id="@+id/tvYearDetail"
@@ -59,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Año"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#404040" />
 
             <TextView
                 android:id="@+id/tvGenderDetail"
@@ -67,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Género"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#404040" />
 
 
             <TextView
@@ -75,14 +79,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
                 android:inputType="textMultiLine"
                 android:text="@string/descripcion"
                 android:textAlignment="center"
-                tools:ignore="TextViewEdits"
-                android:adjustViewBounds="true"
+                android:textColor="#404040"
 
-                />
+                tools:ignore="TextViewEdits" />
 
+
+            <TextView
+                android:id="@+id/tvIdLeague2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#050404"
+                android:visibility="invisible" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -124,9 +135,11 @@
 
 
             <Button
+                android:id="@+id/tbnVerEquipos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:onClick="onClick"
                 android:text="Ver Equipos" />
 
 
