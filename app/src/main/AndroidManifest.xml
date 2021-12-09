@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApiFutbol">
         <activity
+            android:name=".Activity.EventNextMatch"
+            android:exported="false" />
+        <activity
             android:name=".Activity.EventPastMatch"
             android:exported="false" />
         <activity

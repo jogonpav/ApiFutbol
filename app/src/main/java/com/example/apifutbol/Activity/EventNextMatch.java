@@ -25,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventPastMatch extends AppCompatActivity {
+public class EventNextMatch extends AppCompatActivity {
 
     @BindView(R.id.rvEventPastMatch)
     RecyclerView rvEventPastMatch;
@@ -40,14 +40,12 @@ public class EventPastMatch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_past_match);
+        setContentView(R.layout.activity_event_next_match);
         ButterKnife.bind(this);
         context = this;
         Bundle extras = getIntent().getExtras();
         String idLeague = extras.getString("IdLeague");
-
         adapter = new AdapterEventPastMatch(context, items,itemsLeague);
-
         rvEventPastMatch.setLayoutManager(new GridLayoutManager(context, 1));
         rvEventPastMatch.setAdapter(adapter);
         //adapter.getMenuOpcion(menuOpcion);
@@ -56,7 +54,7 @@ public class EventPastMatch extends AppCompatActivity {
         getTeamsByLeague(idLeague);
     }
     private void getEventsPastLeague(String idLeague) {
-        Call<ResponseEventsLeague> api = apiInterface.getEventsPastLeague(idLeague);
+        Call<ResponseEventsLeague> api = apiInterface.getEventsNextLeague(idLeague);
         api.enqueue(new Callback<ResponseEventsLeague>() {
             @Override
             public void onResponse(Call<ResponseEventsLeague> call, Response<ResponseEventsLeague> response) {
@@ -68,9 +66,11 @@ public class EventPastMatch extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ResponseEventsLeague> call, Throwable throwable) {
+
             }
         });
     }
+
     public void getTeamsByLeague(String idLeague ){
         Call<ResponseAllTeamsByLeague> api = apiInterface.getTeamsByLeague(idLeague);
         api.enqueue(new Callback<ResponseAllTeamsByLeague>() {

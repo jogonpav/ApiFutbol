@@ -3,7 +3,7 @@ package com.example.apifutbol.httpclient;
 import com.example.apifutbol.models.ResponseAllLeague;
 import com.example.apifutbol.models.ResponseAllTeamsByLeague;
 import com.example.apifutbol.models.ResponseDetailLeague;
-import com.example.apifutbol.models.ResponseEventsPastLeague;
+import com.example.apifutbol.models.ResponseEventsLeague;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -25,7 +25,11 @@ public interface ApiInterface {
 
     //https://www.thesportsdb.com/api/v1/json/50130162/eventspastleague.php?id=4328
     @GET("eventspastleague.php")
-    Call<ResponseEventsPastLeague> getEventsPastLeague(@Query("id") String idLeague);
+    Call<ResponseEventsLeague> getEventsPastLeague(@Query("id") String idLeague);
+
+    //https://www.thesportsdb.com/api/v1/json/50130162/eventsnextleague.php?id=4497
+    @GET("eventsnextleague.php")
+    Call<ResponseEventsLeague> getEventsNextLeague(@Query("id") String idLeague);
 
 
 

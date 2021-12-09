@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnListadoLigas = (Button) findViewById(R.id.btnListadoLigas);
         Button btnNextMatch = (Button) findViewById(R.id.btnNextMatch);
         Button btnPastMatch = (Button) findViewById(R.id.btnPastMatch);
-
         btnListadoLigas.setOnClickListener(this);
         btnNextMatch.setOnClickListener(this);
         btnPastMatch.setOnClickListener(this);
@@ -44,8 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Resultados", Toast.LENGTH_LONG).show();
         }
         if (v.getId() == R.id.btnNextMatch) {
-            //intent.putExtra("menuOpcion", "Menu_3");
-            //startActivity(intent);
+            intent.putExtra("menuOpcion", "Menu_3");
+            startActivity(intent);
             Toast.makeText(getApplicationContext(), "Proximos partidos", Toast.LENGTH_LONG).show();
         }
     }

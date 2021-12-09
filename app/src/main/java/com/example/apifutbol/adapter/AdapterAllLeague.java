@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apifutbol.Activity.DetailLeague;
+import com.example.apifutbol.Activity.EventNextMatch;
 import com.example.apifutbol.Activity.EventPastMatch;
 import com.example.apifutbol.R;
 import com.example.apifutbol.models.CountrysItem;
@@ -25,7 +26,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
     Context context;
     List<CountrysItem> items;
-
     String menuOpcion;
 
     public AdapterAllLeague(Context context, List<CountrysItem> items) {
@@ -62,9 +62,7 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                 .into(holder.ivLogo);
         }
 
-
         holder.setOnClickListeners();
-
 
     }
 
@@ -149,7 +147,13 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                     Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
                     break;
                 case "Menu_3":
-                    Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
+                    Intent intentEventNext = new Intent(context, EventNextMatch.class);
+                    for (int i=0; i < items.size(); i++){
+                        if(items.get(i).getIdLeague() == tvIdLeague.getText()){
+                            intentEventNext.putExtra("IdLeague", tvIdLeague.getText());
+                        }
+                    }
+                    context.startActivity(intentEventNext);
                     break;
 
                 default:

@@ -3,7 +3,7 @@ package com.example.apifutbol.models;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseEventsPastLeague{
+public class ResponseEventsLeague {
 
 	@SerializedName("events")
 	private List<EventsItem> events;
