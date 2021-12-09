@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apifutbol.Activity.DetailLeague;
+import com.example.apifutbol.Activity.EventPastMatch;
 import com.example.apifutbol.R;
 import com.example.apifutbol.models.CountrysItem;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,8 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
     Context context;
     List<CountrysItem> items;
+
+    String menuOpcion;
 
     public AdapterAllLeague(Context context, List<CountrysItem> items) {
         this.context = context;
@@ -70,6 +73,10 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
         return items.size();
     }
 
+    public void getMenuOpcion(String menuOpcion) {
+        this.menuOpcion = menuOpcion;
+
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -79,8 +86,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
         View itemView;
         //buton para pasar a activity
         Button btnVerliga;
-
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,31 +104,59 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
 
         @Override
         public void onClick(View v) {
-            Toast toast;
-            Intent intent = new Intent(context, DetailLeague.class);
-            for (int i=0; i < items.size(); i++){
-                if(items.get(i).getIdLeague() == tvIdLeague.getText()){
+            switch (menuOpcion){
+                case "Menu_1":
+                    Intent intent = new Intent(context, DetailLeague.class);
+                    Toast notificacion;
+                    notificacion = Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG);
+                    notificacion.show();
+                    for (int i=0; i < items.size(); i++){
+                        if(items.get(i).getIdLeague() == tvIdLeague.getText()){
+                            //toast.show();
+                            //enviar parámetro a la activity invocada
+                            //Toast.makeText(context, String.valueOf(items.get(i).getIdLeague()), Toast.LENGTH_LONG).show();
+                            intent.putExtra("IdLeague", tvIdLeague.getText());
+                            intent.putExtra("logo", String.valueOf(items.get(i).getStrBadge()));
+                            intent.putExtra("banner",String.valueOf(items.get(i).getStrBanner()));
+                            intent.putExtra("nameLeague", String.valueOf(items.get(i).getStrLeague()));
+                            intent.putExtra("country", String.valueOf(items.get(i).getStrCountry()));
+                            intent.putExtra("FormedYear", String.valueOf(items.get(i).getIntFormedYear()));
+                            intent.putExtra("gender", String.valueOf(items.get(i).getStrGender()));
+                            intent.putExtra("DescriptionEN", String.valueOf(items.get(i).getStrDescriptionEN()));
+                            intent.putExtra("ImgFanart1", String.valueOf(items.get(i).getStrFanart1()));
+                            intent.putExtra("ImgFanart2", String.valueOf(items.get(i).getStrFanart2()));
+                            intent.putExtra("ImgFanart3", String.valueOf(items.get(i).getStrFanart3()));
+                            intent.putExtra("ImgFanart4", String.valueOf(items.get(i).getStrFanart4()));
+                        }
+                    }
                     //toast.show();
-                    //enviar parámetro a la activity invocada
-                    //Toast.makeText(context, String.valueOf(items.get(i).getIdLeague()), Toast.LENGTH_LONG).show();
-                    intent.putExtra("IdLeague", tvIdLeague.getText());
-                    intent.putExtra("logo", String.valueOf(items.get(i).getStrBadge()));
-                    intent.putExtra("banner",String.valueOf(items.get(i).getStrBanner()));
-                    intent.putExtra("nameLeague", String.valueOf(items.get(i).getStrLeague()));
-                    intent.putExtra("country", String.valueOf(items.get(i).getStrCountry()));
-                    intent.putExtra("FormedYear", String.valueOf(items.get(i).getIntFormedYear()));
-                    intent.putExtra("gender", String.valueOf(items.get(i).getStrGender()));
-                    intent.putExtra("DescriptionEN", String.valueOf(items.get(i).getStrDescriptionEN()));
-                    intent.putExtra("ImgFanart1", String.valueOf(items.get(i).getStrFanart1()));
-                    intent.putExtra("ImgFanart2", String.valueOf(items.get(i).getStrFanart2()));
-                    intent.putExtra("ImgFanart3", String.valueOf(items.get(i).getStrFanart3()));
-                    intent.putExtra("ImgFanart4", String.valueOf(items.get(i).getStrFanart4()));
-                }
+                    //intent.putExtra("logo1", items.get(Integer.parseInt(PositionLeague.getText())).getStrLogo());
+                    // intent.putExtra("items", (Parcelable) items);
+                    context.startActivity(intent);
+                    break;
+                case "Menu_2":
+                    Intent intentEventPast = new Intent(context, EventPastMatch.class);
+                    for (int i=0; i < items.size(); i++){
+                        if(items.get(i).getIdLeague() == tvIdLeague.getText()){
+                            intentEventPast.putExtra("IdLeague", tvIdLeague.getText());
+                        }
+                    }
+                    //toast.show();
+                    //intent.putExtra("logo1", items.get(Integer.parseInt(PositionLeague.getText())).getStrLogo());
+                    // intent.putExtra("items", (Parcelable) items);
+                    context.startActivity(intentEventPast);
+
+                    Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
+                    break;
+                case "Menu_3":
+                    Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
+                    break;
+
+                default:
+
+
             }
-            //toast.show();
-            //intent.putExtra("logo1", items.get(Integer.parseInt(PositionLeague.getText())).getStrLogo());
-           // intent.putExtra("items", (Parcelable) items);
-            context.startActivity(intent);
+
         }
     }
 

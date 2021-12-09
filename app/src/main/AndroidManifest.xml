@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApiFutbol">
         <activity
+            android:name=".Activity.EventPastMatch"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AllLeagues"
+            android:exported="false" />
+        <activity
             android:name=".Activity.DetailTeam"
             android:exported="false" />
         <activity

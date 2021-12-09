@@ -1,71 +1,53 @@
 package com.example.apifutbol.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.apifutbol.R;
-import com.example.apifutbol.adapter.AdapterAllLeague;
-import com.example.apifutbol.httpclient.ApiInterface;
-import com.example.apifutbol.httpclient.RetrofitClient;
-import com.example.apifutbol.models.CountrysItem;
-import com.example.apifutbol.models.ResponseAllLeague;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.rvLeague)
-    RecyclerView rvLeague;
-
-    Context context;
-    AdapterAllLeague adapter;
-    List<CountrysItem> items = new ArrayList<>();
-    ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btnListadoLigas = (Button) findViewById(R.id.btnListadoLigas);
+        Button btnNextMatch = (Button) findViewById(R.id.btnNextMatch);
+        Button btnPastMatch = (Button) findViewById(R.id.btnPastMatch);
 
-        ButterKnife.bind(this);
-        context = this;
-        adapter = new AdapterAllLeague(context, items);
-
-        rvLeague.setLayoutManager(new GridLayoutManager(context, 2));
-        rvLeague.setAdapter(adapter);
-
-        apiInterface = RetrofitClient.getRetrofitClient().create(ApiInterface.class);
-        getAllLeague();
-    }
-
-    public void getAllLeague(){
-        Call<ResponseAllLeague> api = apiInterface.getAllLeague();
-
-        api.enqueue(new Callback<ResponseAllLeague>() {
-            @Override
-            public void onResponse(Call<ResponseAllLeague> call, Response<ResponseAllLeague> response) {
-                if (response.isSuccessful()){
-                    adapter.setItems(response.body().getCountrys());
-                    adapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseAllLeague> call, Throwable throwable) {
-
-            }
-        });
+        btnListadoLigas.setOnClickListener(this);
+        btnNextMatch.setOnClickListener(this);
+        btnPastMatch.setOnClickListener(this);
 
     }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, AllLeagues.class);
+        if (v.getId() == R.id.btnListadoLigas) {
+            intent.putExtra("menuOpcion", "Menu_1");
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "LISTADO LIGAS", Toast.LENGTH_LONG).show();
+        }
+        if (v.getId() == R.id.btnPastMatch) {
+            intent.putExtra("menuOpcion", "Menu_2");
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Resultados", Toast.LENGTH_LONG).show();
+        }
+        if (v.getId() == R.id.btnNextMatch) {
+            //intent.putExtra("menuOpcion", "Menu_3");
+            //startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Proximos partidos", Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

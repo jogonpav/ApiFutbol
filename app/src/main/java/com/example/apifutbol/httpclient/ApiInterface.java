@@ -3,6 +3,7 @@ package com.example.apifutbol.httpclient;
 import com.example.apifutbol.models.ResponseAllLeague;
 import com.example.apifutbol.models.ResponseAllTeamsByLeague;
 import com.example.apifutbol.models.ResponseDetailLeague;
+import com.example.apifutbol.models.ResponseEventsPastLeague;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -22,7 +23,12 @@ public interface ApiInterface {
     @GET("lookup_all_teams.php")
     Call<ResponseAllTeamsByLeague> getTeamsByLeague(@Query("id") String id_teams);
 
-    //https://www.thesportsdb.com/api/v1/json/50130162/lookup_all_teams.php?id=4497
+    //https://www.thesportsdb.com/api/v1/json/50130162/eventspastleague.php?id=4328
+    @GET("eventspastleague.php")
+    Call<ResponseEventsPastLeague> getEventsPastLeague(@Query("id") String idLeague);
+
+
+
 
     /*@GET("search_all_leagues.php?rapidapi-key=5cc79b5ed6mshf728d09b66e8248p1c4e50jsn8f6e07873a20&s=Soccer")
     Call<ResponseAllLeague> getAllLeague();

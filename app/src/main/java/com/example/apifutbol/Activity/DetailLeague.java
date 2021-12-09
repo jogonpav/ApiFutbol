@@ -24,7 +24,6 @@ public class DetailLeague extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_detail_league);
         Bundle extras = getIntent().getExtras();
         String idLeague2 = extras.getString("IdLeague");
-        //Toast.makeText(getApplication(),idLeague2 + "Estamos aqui", Toast.LENGTH_LONG).show();
         String logoDetail = extras.getString("logo");
         String bannerDetail = extras.getString("banner");
         String nameLeagueDetail = extras.getString("nameLeague");
