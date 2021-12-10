@@ -23,4 +23,9 @@ public class ResponseAllTeamsByLeague{
 			"teams = '" + teams + '\'' + 
 			"}";
 		}
+
+
+	public String toStringNull(){
+		return "" + teams;
+	}
 }

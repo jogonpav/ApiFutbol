@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.apifutbol.R;
 import com.example.apifutbol.adapter.AdapterEventPastMatch;
@@ -51,7 +52,8 @@ public class EventNextMatch extends AppCompatActivity {
         //adapter.getMenuOpcion(menuOpcion);
         apiInterface = RetrofitClient.getRetrofitClient().create(ApiInterface.class);
         getEventsPastLeague(idLeague);
-        getTeamsByLeague(idLeague);
+
+
     }
     private void getEventsPastLeague(String idLeague) {
         Call<ResponseEventsLeague> api = apiInterface.getEventsNextLeague(idLeague);
@@ -59,9 +61,15 @@ public class EventNextMatch extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseEventsLeague> call, Response<ResponseEventsLeague> response) {
                 if(response.isSuccessful()){
-                    adapter.setItems(response.body().getEvents());
-                    adapter.notifyDataSetChanged();
+                    if (!response.body().toStringNull().equals("null")){
+                        adapter.setItems(response.body().getEvents());
+                        adapter.notifyDataSetChanged();
+                        getTeamsByLeague(idLeague);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Esta LIGA No tiene Eventos", Toast.LENGTH_SHORT).show();
+                        finish();
 
+                    }
                 }
             }
             @Override

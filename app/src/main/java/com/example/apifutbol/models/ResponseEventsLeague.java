@@ -17,10 +17,14 @@ public class ResponseEventsLeague {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"ResponseEventsPastLeague{" + 
-			"events = '" + events + '\'' + 
-			"}";
+	public String toString(){
+		return
+			"ResponseDetailLeague{" +
+				"events = '" + events + '\'' +
+				"}";
+	}
+
+ 	public String toStringNull(){
+		return "" + events;
 		}
 }

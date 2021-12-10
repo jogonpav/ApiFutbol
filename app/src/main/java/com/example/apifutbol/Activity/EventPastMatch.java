@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.apifutbol.R;
 import com.example.apifutbol.adapter.AdapterEventPastMatch;
@@ -61,8 +62,14 @@ public class EventPastMatch extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseEventsLeague> call, Response<ResponseEventsLeague> response) {
                 if(response.isSuccessful()){
-                    adapter.setItems(response.body().getEvents());
-                    adapter.notifyDataSetChanged();
+                    if(!response.body().toStringNull().equals("null")){
+                        adapter.setItems(response.body().getEvents());
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Esta LIGA No tiene Eventos", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
 
                 }
             }

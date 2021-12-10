@@ -52,6 +52,7 @@ public class AdapterEventPastMatch extends RecyclerView.Adapter<AdapterEventPast
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.tvDateEventPast.setText(items.get(position).getDateEvent());
         holder.tvHomeTeam.setText(items.get(position).getStrHomeTeam());
         holder.tvHomeScore.setText(items.get(position).getIntHomeScore());

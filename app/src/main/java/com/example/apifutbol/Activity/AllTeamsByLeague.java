@@ -63,13 +63,17 @@ public class AllTeamsByLeague extends AppCompatActivity {
     }
     public void getTeamsByLeague(String idLeague ){
         Call<ResponseAllTeamsByLeague> api = apiInterface.getTeamsByLeague(idLeague);
-
         api.enqueue(new Callback<ResponseAllTeamsByLeague>() {
             @Override
             public void onResponse(Call<ResponseAllTeamsByLeague> call, Response<ResponseAllTeamsByLeague> response) {
                 if(response.isSuccessful()){
-                    adapter.setItems(response.body().getTeams());
-                    adapter.notifyDataSetChanged();
+                    if (!response.body().toStringNull().equals("null")) {
+                        adapter.setItems(response.body().getTeams());
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Esta LIGA No tiene Equipos", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                 }
             }
             @Override

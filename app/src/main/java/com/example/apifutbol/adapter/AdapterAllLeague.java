@@ -47,22 +47,31 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
     //onBindViewHolder muestra el contenido
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvName.setText(items.get(position).getStrLeague());
-        holder.tvIdLeague.setText(items.get(position).getIdLeague());
 
-        if (items.get(position).getStrBadge() == null){
-            Picasso.get()
-                    .load(R.drawable.no_picture)
-                    .resize(200,200)
-                    .into(holder.ivLogo);
-        }else{
-        Picasso.get()
-                .load(items.get(position).getStrBadge())
-                .resize(200,200)
-                .into(holder.ivLogo);
-        }
 
-        holder.setOnClickListeners();
+
+
+
+            holder.tvName.setText(items.get(position).getStrLeague());
+            holder.tvIdLeague.setText(items.get(position).getIdLeague());
+
+            if (items.get(position).getStrBadge() == null){
+                Picasso.get()
+                        .load(R.drawable.no_picture)
+                        .resize(200,200)
+                        .into(holder.ivLogo);
+            }else{
+                Picasso.get()
+                        .load(items.get(position).getStrBadge())
+                        .resize(200,200)
+                        .into(holder.ivLogo);
+            }
+
+            holder.setOnClickListeners();
+
+
+
+
 
     }
 
@@ -110,9 +119,7 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                     notificacion.show();
                     for (int i=0; i < items.size(); i++){
                         if(items.get(i).getIdLeague() == tvIdLeague.getText()){
-                            //toast.show();
                             //enviar parámetro a la activity invocada
-                            //Toast.makeText(context, String.valueOf(items.get(i).getIdLeague()), Toast.LENGTH_LONG).show();
                             intent.putExtra("IdLeague", tvIdLeague.getText());
                             intent.putExtra("logo", String.valueOf(items.get(i).getStrBadge()));
                             intent.putExtra("banner",String.valueOf(items.get(i).getStrBanner()));
@@ -127,9 +134,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                             intent.putExtra("ImgFanart4", String.valueOf(items.get(i).getStrFanart4()));
                         }
                     }
-                    //toast.show();
-                    //intent.putExtra("logo1", items.get(Integer.parseInt(PositionLeague.getText())).getStrLogo());
-                    // intent.putExtra("items", (Parcelable) items);
                     context.startActivity(intent);
                     break;
                 case "Menu_2":
@@ -139,9 +143,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                             intentEventPast.putExtra("IdLeague", tvIdLeague.getText());
                         }
                     }
-                    //toast.show();
-                    //intent.putExtra("logo1", items.get(Integer.parseInt(PositionLeague.getText())).getStrLogo());
-                    // intent.putExtra("items", (Parcelable) items);
                     context.startActivity(intentEventPast);
 
                     Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
