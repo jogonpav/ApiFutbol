@@ -25,13 +25,10 @@ public class AdapterEventPastMatch extends RecyclerView.Adapter<AdapterEventPast
     List<EventsItem> items;
     List<TeamsItem> teamsItems;
 
-
-
     public AdapterEventPastMatch(Context context, List<EventsItem> items, List<TeamsItem> teamsItems) {
         this.context = context;
         this.items = items;
         this.teamsItems = teamsItems;
-
     }
 
     public void setItems(List<EventsItem> items) {
@@ -52,14 +49,12 @@ public class AdapterEventPastMatch extends RecyclerView.Adapter<AdapterEventPast
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        holder.tvDateEventPast.setText(items.get(position).getDateEvent());
+        holder.tvDateEventPast.setText(items.get(position).getDateEvent()+" "+items.get(position).getStrTimeLocal());
         holder.tvHomeTeam.setText(items.get(position).getStrHomeTeam());
         holder.tvHomeScore.setText(items.get(position).getIntHomeScore());
         holder.tvAwayTeam.setText(items.get(position).getStrAwayTeam());
         holder.tvAwayScore.setText(items.get(position).getIntAwayScore());
 
-        //Toast.makeText(context.getApplicationContext(), teamsItems.size(), Toast.LENGTH_LONG).show();
         //image team home
         for (int i = 0; i < teamsItems.size(); i++ ){
             if(items.get(position).getIdHomeTeam().equals(teamsItems.get(i).getIdTeam())) {
@@ -90,26 +85,12 @@ public class AdapterEventPastMatch extends RecyclerView.Adapter<AdapterEventPast
             }
         }
 
-        //image team home
-        /*for (int i = 0; i < teamsItems.size(); i++ ){
-
-
-
-            }
-
-        }*/
-
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvDateEventPast;

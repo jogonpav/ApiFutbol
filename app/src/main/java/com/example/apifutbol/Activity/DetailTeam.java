@@ -9,7 +9,7 @@ import android.text.util.Linkify;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.apifutbol.R;
 import com.squareup.picasso.Picasso;
@@ -44,7 +44,6 @@ public class DetailTeam extends AppCompatActivity {
         String teamImgFanart2 = extras.getString("teamImgFanart2");
         String teamImgFanart3 = extras.getString("teamImgFanart3");
         String teamImgFanart4 = extras.getString("teamImgFanart4");
-
         TextView tvNameTeam = (TextView) findViewById(R.id.tvNameTeam);
         TextView tvStadiumName = (TextView) findViewById(R.id.tvStadiumName);
         TextView tvTeamFormedYear = (TextView) findViewById(R.id.tvTeamFormedYear);
@@ -59,7 +58,6 @@ public class DetailTeam extends AppCompatActivity {
         ImageView ivFannart2Team = (ImageView) findViewById(R.id.ivFannart2Team);
         ImageView ivFannart3Team = (ImageView) findViewById(R.id.ivFannart3Team);
         ImageView ivFannart4Team = (ImageView) findViewById(R.id.ivFannart4Team);
-
         ImageView ivTeamBanner = (ImageView) findViewById(R.id.ivBannerTeam);
         ImageView ivInternet = (ImageView) findViewById(R.id.ivInternet);
         ImageView ivFacebook = (ImageView) findViewById(R.id.ivFacebook);
@@ -67,8 +65,6 @@ public class DetailTeam extends AppCompatActivity {
         ImageView ivTwitter = (ImageView) findViewById(R.id.ivTwitter);
         ImageView ivYoutube = (ImageView) findViewById(R.id.ivYoutube);
 
-
-        Toast.makeText(this, website, Toast.LENGTH_LONG).show();
         if (website.isEmpty()){
             ivInternet.setVisibility(View.GONE);
         }
@@ -130,11 +126,6 @@ public class DetailTeam extends AppCompatActivity {
                 startActivity(internetURL);
             }
         });
-
-
-
-        //Linkify.addLinks(textView, Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
-
         tvNameTeam.setText(teamName);
         tvStadiumName.setText(stadiumName);
         tvTeamFormedYear.setText(FormedYear);
@@ -188,9 +179,6 @@ public class DetailTeam extends AppCompatActivity {
                 .load(teamImgFanart4)
                 .resize(500,500)
                 .into(ivFannart4Team);
-
-
-
 
     }
 }

@@ -12,7 +12,7 @@
     <string name="team_country">País: </string>
     <string name="team_gender_tag">Género: </string>
     <string name="app_name">Soccer Score</string>
-    <string name="btn01">Listado de Equipos</string>
+    <string name="btn01">Listado</string>
     <string name="btn02">Resultados</string>
     <string name="btn03">Inicio</string>
     <string name="btn04">Próximos Partidos</string>
@@ -27,5 +27,7 @@
     <string name="logo">Logo Soccer Score</string>
     <string name="segunda_Activity">Estas en la Segunda Activity!!!</string>
     <string name="button">regresar</string>
+    <string name="mintic">MisiónTic 2022</string>
+    <string name="universidad">UNAB</string>
 
 </resources>

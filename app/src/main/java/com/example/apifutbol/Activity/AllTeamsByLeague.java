@@ -47,7 +47,6 @@ public class AllTeamsByLeague extends AppCompatActivity {
 
       Bundle extras = getIntent().getExtras();
       String idLeague= extras.getString("IdLeague");
-      //Toast.makeText(getApplication(),idLeague, Toast.LENGTH_LONG).show();
 
         ButterKnife.bind(this);
         context = this;

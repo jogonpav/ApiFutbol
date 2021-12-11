@@ -56,11 +56,9 @@ public class AllLeagues extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         menuOpcion = extras.getString("menuOpcion");
         navigationOption = extras.getString("navigationOption");
-
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(seleccionarItem(navigationOption));
 
-        //Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
         adapter = new AdapterAllLeague(context, items);
         rvLeague.setLayoutManager(new GridLayoutManager(context, 2));
         rvLeague.setAdapter(adapter);

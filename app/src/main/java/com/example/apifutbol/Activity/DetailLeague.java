@@ -2,14 +2,14 @@ package com.example.apifutbol.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.apifutbol.R;
 import com.squareup.picasso.Picasso;
@@ -91,7 +91,6 @@ public class DetailLeague extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //Toast.makeText(getApplication(),tvIdLeague2.getText() +"boton funcionando", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AllTeamsByLeague.class);
         intent.putExtra("IdLeague", tvIdLeague2.getText());
         startActivity(intent);

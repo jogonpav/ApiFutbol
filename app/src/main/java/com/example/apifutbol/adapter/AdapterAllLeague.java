@@ -47,11 +47,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
     //onBindViewHolder muestra el contenido
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-
-
-
-
             holder.tvName.setText(items.get(position).getStrLeague());
             holder.tvIdLeague.setText(items.get(position).getIdLeague());
 
@@ -68,11 +63,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
             }
 
             holder.setOnClickListeners();
-
-
-
-
-
     }
 
     @Override
@@ -114,9 +104,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
             switch (menuOpcion){
                 case "Menu_1":
                     Intent intent = new Intent(context, DetailLeague.class);
-                    Toast notificacion;
-                    notificacion = Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG);
-                    notificacion.show();
                     for (int i=0; i < items.size(); i++){
                         if(items.get(i).getIdLeague() == tvIdLeague.getText()){
                             //enviar parámetro a la activity invocada
@@ -144,8 +131,6 @@ public class AdapterAllLeague extends RecyclerView.Adapter<AdapterAllLeague.View
                         }
                     }
                     context.startActivity(intentEventPast);
-
-                    Toast.makeText(context, menuOpcion,Toast.LENGTH_LONG).show();
                     break;
                 case "Menu_3":
                     Intent intentEventNext = new Intent(context, EventNextMatch.class);

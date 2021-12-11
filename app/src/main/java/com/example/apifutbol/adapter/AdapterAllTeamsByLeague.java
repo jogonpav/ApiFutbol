@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -119,9 +118,6 @@ public class AdapterAllTeamsByLeague extends RecyclerView.Adapter<AdapterAllTeam
                     intent.putExtra("teamImgFanart4", String.valueOf(items.get(i).getStrTeamFanart4()));
                 }
             }
-
-            Toast.makeText(context, idTeam ,Toast.LENGTH_LONG).show();
-
             context.startActivity(intent);
         }
     }
