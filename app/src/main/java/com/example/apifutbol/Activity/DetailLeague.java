@@ -92,7 +92,6 @@ public class DetailLeague extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         //Toast.makeText(getApplication(),tvIdLeague2.getText() +"boton funcionando", Toast.LENGTH_LONG).show();
-
         Intent intent = new Intent(this, AllTeamsByLeague.class);
         intent.putExtra("IdLeague", tvIdLeague2.getText());
         startActivity(intent);

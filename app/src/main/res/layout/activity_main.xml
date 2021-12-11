@@ -1,37 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentBottom="false"
+    android:background="@drawable/pasto"
     tools:context=".Activity.MainActivity">
 
-    <Button
-        android:id="@+id/btnListadoLigas"
+    <FrameLayout
+        android:id="@+id/frameLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="Listados de Equipos"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp">
 
-    <Button
-        android:id="@+id/btnPastMatch"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="316dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_app"
+            tools:ignore="ImageContrastCheck" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Resultados"
-        app:layout_constraintTop_toBottomOf="@+id/btnListadoLigas"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_below="@id/frameLayout1"
+        android:visibility="visible">
 
-    <Button
-        android:id="@+id/btnNextMatch"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#e37a1d"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="proximos partidos"
-        app:layout_constraintTop_toBottomOf="@+id/btnPastMatch"
-        tools:layout_editor_absoluteX="106dp" />
+        android:layout_below="@id/frameLayout2"
+        android:visibility="visible">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/ib1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/btn01"
+            android:onClick="Listado_Equipos"
+            android:paddingTop="15dp"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:srcCompat="@drawable/botones_app1"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frameLayout3"
+        android:paddingTop="15dp"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/ib2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:onClick="Resultados"
+            android:contentDescription="@string/btn02"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:srcCompat="@drawable/botones_app2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frameLayout4"
+        android:paddingTop="15dp"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/ib3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/btn04"
+            android:onClick="Proximos_Partidos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@id/ib2"
+            app:layout_constraintTop_toBottomOf="@+id/ib2"
+            app:srcCompat="@drawable/botones_app3"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frameLayout5"
+        android:paddingTop="15dp"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/ib4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/btn04"
+            android:onClick="Acerca_de"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:srcCompat="@drawable/botones_app4"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </FrameLayout>
+
+</RelativeLayout>

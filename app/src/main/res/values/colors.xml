@@ -9,4 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="base_text">#404040</color>
 
+    <color name="white_trasparente">#70FFFFFF</color>
+    <color name="navegationView">#E37A1D</color>
+
+
+    <color name="colorOrange">#ff6f00</color>
+    <color name="colorGreen">#33691e</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteTransparent">#99FFFFFF</color>
+
 </resources>

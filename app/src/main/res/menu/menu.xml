@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option1"
+        android:icon="@drawable/ic_baseline_sports_soccer_24"
+        android:title="@string/btn01" />
+    <item
+        android:id="@+id/option2"
+        android:icon="@drawable/ic_baseline_ballot_24"
+        android:title="@string/btn02" />
+    <item
+        android:id="@+id/option3"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/btn03" />
+    <item
+        android:id="@+id/option4"
+        android:icon="@drawable/ic_baseline_sports_24"
+        android:title="@string/btn04" />
+    <item
+        android:id="@+id/option5"
+        android:icon="@drawable/ic_baseline_perm_device_information_24"
+        android:title="@string/btn05"/>
+</menu>
